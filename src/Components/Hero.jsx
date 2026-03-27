@@ -37,7 +37,7 @@ export default function Hero() {
           <div className="space-y-6">
             <div>
               <p className="text-teal-600 font-semibold text-lg mb-2">Welcome to My Portfolio</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-4">
                 Hi, I'm{' '}
                 <span className="text-teal-600 bg-gradient-to-r from-teal-100 to-teal-50 px-2 rounded">
                   {profile.name}
