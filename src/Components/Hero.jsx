@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   const profile = {
-    name: 'Simran Kaur',
+    name: 'Simran Pahal',
     pos: 'Cyber Security Web Development',
     des: 'Passionate cybersecurity enthusiast and full-stack web developer dedicated to building secure, resilient web applications. Currently pursuing advanced training at Harton Advance Skill Centre, combining cutting-edge development practices with security-first principles to create robust digital solutions that protect against modern cyber threats.',
     skill: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Figma', 'Cloudinary', 'Postman', 'AWS', 'GitHub', 'JavaScript']
@@ -94,7 +94,7 @@ export default function Hero() {
                 <div className="rounded-full p-2 bg-gradient-to-br from-teal-500 to-teal-600 shadow-2xl">
                   <img 
                     src="https://res.cloudinary.com/dpxcaxiuj/image/upload/v1768884484/WhatsApp_Image_2026-01-20_at_10.13.52_AM_ni6j6p.jpg"
-                    alt="Simran Kaur - Cybersecurity Web Developer"
+                    alt="Simran Pahal - Cybersecurity Web Developer"
                     className="rounded-full w-96 h-96 object-cover"
                   />
                 </div>

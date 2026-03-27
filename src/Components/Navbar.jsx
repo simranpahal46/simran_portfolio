@@ -141,7 +141,7 @@ export default function Navbar() {
                 <FaGithub className="text-2xl" />
               </a>
               <a
-                href="https://linkedin.com/in/simrankaur"
+                href="https://www.linkedin.com/in/simran-kaur-4742443a7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-teal-600 transition-all duration-300 hover:scale-110"

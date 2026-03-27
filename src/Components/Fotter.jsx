@@ -49,7 +49,7 @@ export default function Footer() {
                 <FaShieldAlt className="text-white text-xl" />
               </div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
-                Simran Kaur
+                Simran Pahal
               </h3>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
@@ -141,7 +141,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-gray-500 text-sm">
             <MdCopyright className="text-sm" />
-            <span>{currentYear} Simran Kaur. All rights reserved.</span>
+            <span>{currentYear} Simran Pahal. All rights reserved.</span>
           </div>
           
           <div className="flex items-center gap-2">
