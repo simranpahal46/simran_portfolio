@@ -1,261 +1,437 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaLaptopCode, 
-  FaExternalLinkAlt, 
-  FaGithub, 
+  FaGraduationCap, 
+  FaBuilding, 
+  FaComments,
   FaCode,
-  FaLock,
+  FaExternalLinkAlt,
+  FaGithub,
   FaRocket,
-  FaHeartbeat,
-  FaCheckCircle,
-  FaGraduationCap,
+  FaEye,
+  FaShieldAlt,
   FaSchool,
   FaGlobe,
-  FaComments,
-  FaStar,
+  FaServer,
   FaDatabase,
-  FaServer
+  FaCloudUploadAlt,
+  FaAward,
+  FaMedal,
+  FaTrophy,
+  FaUsers,
+  FaChartLine,
+  FaBrain,
+  FaBookOpen,
+  FaLightbulb,
+  FaHeart,
+  FaInfinity,
+  FaSpinner
 } from 'react-icons/fa';
+import { FiBookOpen, FiGlobe } from 'react-icons/fi';
 
-export default function Project() {
+const Project = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+  
   const projects = [
     {
+      id: 1,
       title: "Sqilo.com",
-      description: "Educational platform offering courses and learning resources. Features include course management, student enrollment, video lectures, and interactive quizzes.",
+      type: "Educational Platform",
+      company: "Hartron",
       icon: <FaGraduationCap />,
-      tech: ["React.js", "Node.js", "MongoDB", "Express.js", "Cloudinary"],
-      features: ["Course Management", "Video Streaming", "Quiz System", "Student Dashboard"],
-      link: "https://sqilo.com",
-      color: "from-teal-500 to-teal-600",
-      bgColor: "bg-teal-50",
+      color: "from-teal-500 to-cyan-500",
       status: "Live",
-      category: "Educational Platform"
+      date: "2025",
+      description: "Comprehensive educational platform with interactive learning experiences, course management, and student engagement features.",
+      features: ["Interactive Learning", "Course Management", "Progress Tracking", "Quiz Engine", "Video Delivery"],
+      technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "AWS", "Tailwind CSS"],
+      liveLink: "https://sqilo.com",
+      githubLink: "https://github.com",
+      role: "Full Stack Developer",
+      contributions: [
+        "Developed responsive UI components",
+        "Implemented secure authentication",
+        "Built RESTful APIs",
+        "Optimized database queries",
+        "Integrated payment gateway"
+      ]
     },
     {
+      id: 2,
       title: "HartronIndia.com",
-      description: "Official website for Hartron Advance Skill Centre showcasing courses, certifications, and training programs with admin dashboard.",
+      type: "Corporate Website",
+      company: "Hartron",
       icon: <FaSchool />,
-      tech: ["React.js", "Node.js", "MySQL", "Tailwind CSS", "AWS"],
-      features: ["Course Catalog", "Admin Panel", "Student Portal", "Certificate Generation"],
-      link: "https://hartronindia.com",
-      color: "from-teal-500 to-teal-600",
-      bgColor: "bg-teal-50",
+      color: "from-teal-500 to-cyan-500",
       status: "Live",
-      category: "Institutional Website"
+      date: "2025",
+      description: "Official corporate website showcasing services, achievements, and information portal for stakeholders.",
+      features: ["Service Portfolio", "News & Updates", "Contact Management", "SEO Optimized", "Multi-language"],
+      technologies: ["React.js", "Node.js", "MySQL", "Tailwind CSS", "AWS", "JWT"],
+      liveLink: "https://hartronindia.com",
+      githubLink: "https://github.com",
+      role: "Frontend Developer",
+      contributions: [
+        "Created responsive layouts",
+        "Implemented CMS integration",
+        "Optimized performance",
+        "Added SEO best practices",
+        "Ensured accessibility"
+      ]
     },
     {
-      title: "LMS HartronIndia.online",
-      description: "Learning Management System for managing online courses, assignments, student progress tracking, and interactive learning materials.",
-      icon: <FaGlobe />,
-      tech: ["MERN Stack", "Socket.io", "Redux", "JWT", "Material-UI"],
-      features: ["Course Management", "Assignment Submission", "Progress Tracking", "Live Classes"],
-      link: "https://hartronindia.online",
-      color: "from-teal-500 to-teal-600",
-      bgColor: "bg-teal-50",
+      id: 3,
+      title: "HartronIndia.Online",
+      type: "Learning Management System",
+      company: "Hartron",
+      icon: <FiBookOpen />,
+      color: "from-teal-500 to-cyan-500",
       status: "Live",
-      category: "Learning Management System"
+      date: "2025",
+      description: "Advanced LMS for delivering training programs, tracking progress, and managing educational content.",
+      features: ["Course Enrollment", "Progress Dashboard", "Certificate Generation", "Assignments", "Instructor Management"],
+      technologies: ["React.js", "Redux", "Node.js", "MongoDB", "Express.js", "Socket.io"],
+      liveLink: "https://hartronindia.online",
+      githubLink: "https://github.com",
+      role: "Full Stack Developer",
+      contributions: [
+        "Developed course management",
+        "Built real-time tracking",
+        "Implemented certificate generation",
+        "Created admin dashboard",
+        "Optimized database architecture"
+      ]
     },
     {
-      title: "Messaging App",
-      description: "Real-time messaging application with instant messaging, group chats, file sharing, and end-to-end encryption for secure communication.",
+      id: 4,
+      title: "Secure Messaging App",
+      type: "Communication Platform",
+      company: "Hartron",
       icon: <FaComments />,
-      tech: ["React.js", "Node.js", "Socket.io", "MongoDB", "WebRTC"],
-      features: ["Real-time Chat", "Group Messaging", "File Sharing", "Read Receipts"],
-      link: "https://github.com",
-      color: "from-teal-500 to-teal-600",
-      bgColor: "bg-teal-50",
-      status: "In Development",
-      category: "Communication App"
+      color: "from-teal-500 to-cyan-500",
+      status: "Live",
+      date: "2025",
+      description: "Secure enterprise messaging with end-to-end encryption for confidential internal communication.",
+      features: ["End-to-End Encryption", "Real-time Messaging", "File Sharing", "Group Chats", "Message History"],
+      technologies: ["React.js", "Node.js", "Socket.io", "MongoDB", "WebRTC", "JWT"],
+      liveLink: "https://github.com",
+      githubLink: "https://github.com/simranpahal46",
+      role: "Full Stack Developer",
+      contributions: [
+        "Implemented encryption protocols",
+        "Built real-time chat features",
+        "Developed responsive UI",
+        "Created secure file sharing",
+        "Optimized real-time data"
+      ]
     }
   ];
 
-  const stats = [
-    { icon: <FaRocket />, value: "4", label: "Live Projects", color: "teal" },
-    { icon: <FaCode />, value: "15+", label: "Technologies", color: "teal" },
-    { icon: <FaCheckCircle />, value: "100%", label: "Client Satisfaction", color: "teal" },
-    { icon: <FaHeartbeat />, value: "24/7", label: "Live Support", color: "teal" }
+  const learningPhilosophy = [
+    { 
+      icon: <FaBrain />, 
+      title: "Continuous Growth", 
+      quote: "Every day is an opportunity to learn something new. I embrace challenges as stepping stones to mastery.",
+      color: "from-teal-500 to-cyan-500"
+    },
+    { 
+      icon: <FaBookOpen />, 
+      title: "Security First", 
+      quote: "Building with security in mind isn't an afterthought—it's the foundation of every project I create.",
+      color: "from-cyan-500 to-teal-500"
+    },
+    { 
+      icon: <FaLightbulb />, 
+      title: "Innovation Through Curiosity", 
+      quote: "The best solutions come from asking 'what if?' and exploring the unknown with enthusiasm.",
+      color: "from-teal-500 to-emerald-500"
+    },
+    { 
+      icon: <FaHeart />, 
+      title: "User-Centric Design", 
+      quote: "Technology serves people. I build experiences that are intuitive, accessible, and meaningful.",
+      color: "from-emerald-500 to-teal-500"
+    },
+    { 
+      icon: <FaInfinity />, 
+      title: "Lifelong Learning", 
+      quote: "The tech landscape evolves rapidly—staying curious and adaptable is my superpower.",
+      color: "from-teal-500 to-cyan-500"
+    },
+    { 
+      icon: <FaSpinner />, 
+      title: "Resilience & Adaptability", 
+      quote: "Every bug fixed, every challenge overcome—resilience turns obstacles into opportunities.",
+      color: "from-cyan-500 to-teal-500"
+    }
   ];
 
-  const techStack = [
-    "React.js", "Node.js", "Express.js", "MongoDB", "MySQL", 
-    "Socket.io", "Tailwind CSS", "AWS", "Cloudinary", "JWT", 
-    "Redux", "Redis", "Bcrypt", "Material-UI", "WebRTC"
+  const filters = [
+    { id: 'all', label: 'All', icon: <FaLaptopCode /> },
+    { id: 'web', label: 'Web', icon: <FiGlobe /> },
+    { id: 'education', label: 'Education', icon: <FaGraduationCap /> },
+    { id: 'security', label: 'Security', icon: <FaShieldAlt /> }
   ];
+
+  const filteredProjects = activeFilter === 'all' 
+    ? projects 
+    : projects.filter(project => {
+        if (activeFilter === 'web') return [1, 2, 3].includes(project.id);
+        if (activeFilter === 'education') return [1, 3].includes(project.id);
+        if (activeFilter === 'security') return [4].includes(project.id);
+        return true;
+      });
 
   return (
-    <div id="projects" className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-teal-100 px-4 py-2 rounded-full mb-4">
-            <FaLaptopCode className="text-teal-600" />
-            <span className="text-teal-700 text-sm font-medium">Featured Work</span>
+    <section id="projects" className="py-16 bg-gradient-to-b from-gray-50 to-gray-100">
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 bg-teal-100 border border-teal-200 rounded-full px-4 py-2 mb-4">
+            <FaRocket className="text-teal-600 text-sm" />
+            <span className="text-sm font-medium text-teal-700">Live Projects</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
-              My Live Projects
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+              Professional Projects
             </span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Real-world projects built at Hartron Advance Skill Centre, showcasing my expertise in web development
+            Real-world applications developed at Hartron Advance Skill Centre
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-teal-400 mx-auto mt-6 rounded-full"></div>
-        </div>
+        </motion.div>
 
-        {/* Stats Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          {stats.map((stat, index) => (
-            <div key={index} className="bg-white rounded-xl p-4 text-center border border-gray-200 hover:border-teal-300 hover:shadow-lg transition-all duration-300">
-              <div className="inline-flex p-3 bg-teal-100 rounded-full mb-2">
-                <div className="text-teal-500 text-xl">{stat.icon}</div>
-              </div>
-              <div className="text-2xl font-bold text-teal-600">{stat.value}</div>
-              <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
-            </div>
+        {/* Filter Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {filters.map((filter) => (
+            <motion.button
+              key={filter.id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveFilter(filter.id)}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-300 text-sm ${
+                activeFilter === filter.id
+                  ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-md'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+              }`}
+            >
+              {filter.icon}
+              <span>{filter.label}</span>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative bg-white rounded-2xl border border-gray-200 hover:border-teal-300 transition-all duration-500 hover:shadow-2xl hover:shadow-teal-100 overflow-hidden transform hover:-translate-y-2"
-            >
-              {/* Status Badge */}
-              <div className={`absolute top-4 right-4 z-10 px-3 py-1 rounded-full text-xs font-medium ${
-                project.status === 'Live' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
-              }`}>
-                {project.status === 'Live' ? '● Live' : '● In Development'}
-              </div>
-
-              {/* Gradient Border Effect */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
-              
-              {/* Header */}
-              <div className={`p-6 ${project.bgColor} border-b border-gray-100`}>
-                <div className="flex items-center gap-3">
-                  <div className="p-3 bg-white rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
-                    <div className="text-2xl text-teal-500">{project.icon}</div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
-                    <p className="text-gray-500 text-xs mt-1">{project.category}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{project.description}</p>
-                
-                {/* Tech Stack */}
-                <div className="mb-4">
-                  <h4 className="text-xs font-semibold text-gray-500 mb-2">TECH STACK</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className="px-2 py-1 bg-gray-100 rounded-md text-xs text-gray-600">
-                        {tech}
-                      </span>
-                    ))}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all"
+              >
+                {/* Header with Gradient */}
+                <div className={`p-5 bg-gradient-to-r ${project.color} text-white`}>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-white/20 rounded-lg text-xl">
+                        {project.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg">{project.title}</h3>
+                        <p className="text-xs text-white/80">{project.type}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full text-xs">
+                      <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                      <span>{project.status}</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Features */}
-                <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-gray-500 mb-2">KEY FEATURES</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.features.map((feature, i) => (
-                      <span key={i} className="px-2 py-1 bg-teal-50 rounded-md text-xs text-teal-600">
-                        {feature}
-                      </span>
-                    ))}
+                {/* Content */}
+                <div className="p-5">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                    <FaBuilding className="text-teal-600 text-xs" />
+                    <span>{project.company}</span>
+                    <span>•</span>
+                    <span>{project.date}</span>
+                  </div>
+
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{project.description}</p>
+
+                  {/* Role */}
+                  <div className="mb-3">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-gray-700 mb-2">
+                      <FaCode className="text-teal-600 text-xs" />
+                      <span>Role: {project.role}</span>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="mb-4">
+                    <h4 className="text-xs font-semibold text-gray-500 mb-2">TECH STACK</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, i) => (
+                        <span key={i} className="px-2 py-1 bg-teal-50 text-teal-700 rounded-md text-xs font-medium">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div className="mb-5">
+                    <h4 className="text-xs font-semibold text-gray-500 mb-2">KEY FEATURES</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.features.map((feature, i) => (
+                        <span key={i} className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs">
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3 pt-3 border-t border-gray-100">
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:from-teal-700 transition"
+                    >
+                      <FaExternalLinkAlt className="text-xs" />
+                      <span>Live Demo</span>
+                    </a>
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 border border-teal-600 text-teal-600 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-teal-50 transition"
+                    >
+                      <FaGithub className="text-sm" />
+                      <span>Source Code</span>
+                    </a>
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-                {/* Links - WORKING BUTTONS */}
-                <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition-all duration-300 hover:scale-105 cursor-pointer"
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <FaExternalLinkAlt className="text-xs" />
-                    View Project
-                  </a>
-                  <a
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-teal-600 text-teal-600 rounded-lg text-sm font-medium hover:bg-teal-50 transition-all duration-300 hover:scale-105 cursor-pointer"
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <FaGithub className="text-sm" />
-                    Source Code
-                  </a>
-                </div>
-              </div>
-
-              {/* Decorative Element */}
-              <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-teal-50 to-transparent rounded-tl-full pointer-events-none"></div>
+        {/* Learning Philosophy Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-teal-100 px-4 py-2 rounded-full mb-3">
+              <FaBrain className="text-teal-600 text-sm" />
+              <span className="text-sm font-medium text-teal-700">My Learning Philosophy</span>
             </div>
-          ))}
-        </div>
-
-        {/* Tech Stack Overview */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-teal-400 px-6 py-2 rounded-full mb-4">
-              <FaCode className="text-white text-sm" />
-              <span className="text-white text-sm font-medium">TECHNOLOGIES USED</span>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800">My Tech Arsenal</h3>
+            <h3 className="text-2xl font-bold text-gray-800">The Principles That Guide Me</h3>
+            <p className="text-gray-500 text-sm mt-1">How I approach challenges and growth</p>
           </div>
-          
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
-            <div className="flex flex-wrap justify-center gap-3">
-              {techStack.map((tech, index) => (
-                <div
-                  key={index}
-                  className="group relative px-4 py-2 bg-gray-50 rounded-full border border-gray-200 hover:border-teal-300 transition-all duration-300 hover:shadow-md"
-                >
-                  <span className="text-gray-700 text-sm group-hover:text-teal-600 transition-colors">{tech}</span>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {learningPhilosophy.map((philosophy, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-lg transition-all group"
+              >
+                <div className={`inline-flex p-3 bg-gradient-to-r ${philosophy.color} rounded-lg mb-3 group-hover:scale-110 transition-transform`}>
+                  <div className="text-white text-xl">{philosophy.icon}</div>
                 </div>
-              ))}
+                <h4 className="font-bold text-gray-800 text-base mb-2">{philosophy.title}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed italic">"{philosophy.quote}"</p>
+                <div className="mt-3 w-12 h-0.5 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full group-hover:w-20 transition-all"></div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Statistics */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-white border border-gray-200 rounded-xl p-6 mb-8"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
+            <div>
+              <div className="text-3xl font-bold text-teal-600">4</div>
+              <div className="text-sm text-gray-600 mt-1">Live Projects</div>
+              <div className="text-xs text-gray-400">Deployed & Running</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-teal-600">15+</div>
+              <div className="text-sm text-gray-600 mt-1">Technologies</div>
+              <div className="text-xs text-gray-400">Modern Stack</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-teal-600">100%</div>
+              <div className="text-sm text-gray-600 mt-1">Client Satisfaction</div>
+              <div className="text-xs text-gray-400">Positive Feedback</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-teal-600">24/7</div>
+              <div className="text-sm text-gray-600 mt-1">Live Support</div>
+              <div className="text-xs text-gray-400">Continuous Monitoring</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Impact Section */}
-        <div className="bg-gradient-to-r from-teal-600 to-teal-500 rounded-2xl p-8 text-white text-center">
-          <div className="inline-flex p-3 bg-white/20 rounded-full mb-4">
-            <FaRocket className="text-3xl" />
+        {/* Quote Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-teal-600 to-cyan-600 rounded-xl p-6 text-white text-center"
+        >
+          <div className="inline-flex p-2 bg-white/20 rounded-full mb-3">
+            <FaChartLine className="text-xl" />
           </div>
-          <h3 className="text-2xl font-bold mb-3">Making an Impact</h3>
-          <p className="text-teal-100 max-w-2xl mx-auto leading-relaxed">
-            All projects are live and serving real users, demonstrating my ability to build 
-            production-ready applications with modern technologies and security best practices.
+          <p className="text-sm leading-relaxed max-w-2xl mx-auto">
+            "Every line of code is a step forward in my journey to build secure, scalable, and innovative solutions. 
+            I believe that great developers aren't born—they're built through curiosity, persistence, and a passion for learning."
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <div className="flex items-center gap-2">
-              <FaCheckCircle className="text-white" />
-              <span className="text-sm">100% Responsive</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaLock className="text-white" />
-              <span className="text-sm">Secure by Design</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaHeartbeat className="text-white" />
-              <span className="text-sm">Performance Optimized</span>
-            </div>
+          <div className="mt-3 text-xs text-teal-100">
+            — Simran Kaur, Full Stack Developer & Cybersecurity Enthusiast
           </div>
-        </div>
-
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default Project;
